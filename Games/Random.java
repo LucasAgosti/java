@@ -20,7 +20,7 @@ class JogoAleatorio{
 			System.out.println("        You lose!");
 			System.out.println("*-----------------------*");
 		}
-		
+		 
 		System.out.println("\nThanks for playing!\n\n");
 	}
 }
