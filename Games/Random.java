@@ -19,8 +19,9 @@ class JogoAleatorio{
 			System.out.println("*-----------------------*");
 			System.out.println("        You lose!");
 			System.out.println("*-----------------------*");
+			System.out.println("\nThe random number was " + random + ".");
 		}
-		 
+		
 		System.out.println("\nThanks for playing!\n\n");
 	}
 }
