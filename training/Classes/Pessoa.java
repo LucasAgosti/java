@@ -40,7 +40,17 @@ public class Pessoa{
 	public String getNomeMae(){
 		return nomeMae;
 	
+	}
 	//CRIANDO FUNÇÃO PARA CRIAR UM DISPLAY
+	public String toString(){
+		String str = " ";
+		str = str + "Nome: " + this.nome;
+		str = str + "Endereço: " + this.endereco;
+		str = str + "Data de nascimento: " + this.dataNascimento;
+		str = str + "Nome do pai: " + this.nomePai;
+		str = str + "Nome da mãe: " + this.nomeMae;
+		return str;
+	
 	
 	
 	}
