@@ -1,57 +1,27 @@
-public class Pessoa{
+import static java.lang.System.out;
+import java.util.Scanner;
 
-	private String nome;
-	private String endereco;
-	private String dataNascimento;
-	private String nomePai;
-	private String nomeMae;
-	
-	public void setNome(String nome){
-		this.nome = nome;
-	}
-	public String getNome(){
-		return nome;
-	}
-	
-	public void setEndereco(String endereco){
-		this.endereco = endereco;
-	}
-	public String getEndereco(){
-		return endereco;
-	}
-	
-	public void setDataNascimento(String dataNascimento){
-		this.dataNascimento = dataNascimento;
-	}
-	public String getDataNascimento(){
-		return dataNascimento;
-	}
-	
-	public void setNomePai(String nomePai){
-		this.nomePai = nomePai;
-	}
-	public String getNomePai(){
-		return nomePai;
-	}
-			
-	public void setNomeMae(String nomeMae){
-		this.nomeMae = nomeMae;
-	}
-	public String getNomeMae(){
-		return nomeMae;
-	
-	}
-	//CRIANDO FUNÇÃO PARA CRIAR UM DISPLAY
-	public String toString(){
-		String str = " ";
-		str = str + "Nome: " + this.nome;
-		str = str + "Endereço: " + this.endereco;
-		str = str + "Data de nascimento: " + this.dataNascimento;
-		str = str + "Nome do pai: " + this.nomePai;
-		str = str + "Nome da mãe: " + this.nomeMae;
-		return str;
-	
-	
-	
+class CriandoPessoa{
+	public static void main(String[] args){
+
+		Pessoa pessoa1 = new Pessoa();
+		Scanner n1 = new Scanner(System.in);
+				
+		out.println("Crie sua pessoa citando seu/sua : nome - endereço - data de nascimento - nome do pai e nome da mãe");
+		
+		String nome1 = n1.nextLine();
+		String endereco1 = n1.nextLine();
+		String dataNascimento1 = n1.nextLine();
+		String pai1 = n1.nextLine();
+		String mae1 = n1.nextLine();
+		
+		pessoa1.setNome(nome1);
+		pessoa1.setEndereco(endereco1);	
+		pessoa1.setDataNascimento(dataNascimento1);
+		pessoa1.setNomePai(pai1);
+		pessoa1.setNomeMae(mae1);
+		
+		out.println(pessoa1);
+		
 	}
 }
