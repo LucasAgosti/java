@@ -43,15 +43,14 @@ public class Pessoa{
 	}
 	//CRIANDO FUNÇÃO PARA CRIAR UM DISPLAY
 	public String toString(){
-		String str = " ";
-		str = str + "Nome: " + this.nome;
-		str = str + "Endereço: " + this.endereco;
-		str = str + "Data de nascimento: " + this.dataNascimento;
-		str = str + "Nome do pai: " + this.nomePai;
-		str = str + "Nome da mãe: " + this.nomeMae;
+		String str = "";
+		str = str + "*--------------------------------*\n";
+		str = str + "Nome: " + this.nome + "\n";
+		str = str + "Endereço: " + this.endereco + "\n";
+		str = str + "Data de nascimento: " + this.dataNascimento + "\n";
+		str = str + "Nome do pai: " + this.nomePai + "\n";
+		str = str + "Nome da mãe: " + this.nomeMae + "\n";
+		str = str + "*--------------------------------*\n";
 		return str;
-	
-	
-	
 	}
 }
