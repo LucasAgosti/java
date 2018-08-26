@@ -7,7 +7,10 @@ public class Aula2308{
 		Scanner key = new Scanner(System.in);
 		
 		out.println("*----------------------------------*");
-		out.println("\tQual questão deseja ?");
+		out.println("\tEscolha uma questão:\n");
+		out.println(" 01 - Primos");
+		out.println(" 02 - Par e múltiplo de 3");
+		out.println(" 03 - Fibonacci");
 		out.println("*----------------------------------*");
 		int op = key.nextInt();
 		
