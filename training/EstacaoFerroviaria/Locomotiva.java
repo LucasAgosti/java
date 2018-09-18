@@ -1,9 +1,12 @@
 package EstacaoFerroviaria;
 public class Locomotiva{
+	
+	//DEFININDO VARIÁVEIS
 	private String numeroDeSerie;
 	private double tracao;
 	private double comprimento;
 	
+	//MÉTODOS SET E GET
 	public void setNumeroDeSerie(String numeroDeSerie){
 		this.numeroDeSerie = numeroDeSerie;
 	}
@@ -25,6 +28,13 @@ public class Locomotiva{
 		return comprimento;
 	}
 	
+	//CONSTRUTORES
+	
+	public Locomotiva(String numeroDeSerie, double tracao, double comprimento){
+		this.numeroDeSerie = numeroDeSerie;
+		this.tracao = tracao;
+		this.comprimento = comprimento;
+	}
 	public String toString(){
 		String str = "";
 		str += "Essa locomotiva tem número de série: " + this.numeroDeSerie + "\n";
