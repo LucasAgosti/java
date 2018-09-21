@@ -1,5 +1,6 @@
 package EstacaoFerroviaria;
 import java.util.Date;
+
 public class Trem{
 	
 	private Vagao vagao;
@@ -16,6 +17,13 @@ public class Trem{
 	}
 	public int getLimite(){
 		return limite;
+	}
+	
+	public void setData(Date dataDeFormacao){
+		this.dataDeFormacao = dataDeFormacao;
+	}
+	public Date getData(){
+		return dataDeFormacao;
 	}
 	
 	public Trem(Vagao vagao, Locomotiva locomotiva, Date dataDeFormacao, Estacao origem, Estacao destino, int limite){
