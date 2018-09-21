@@ -1,12 +1,12 @@
 package EstacaoFerroviaria;
-import java.util.Scanner;	
+import java.util.Scanner;
 
 public class Main{
-	public static void main(String args[]){
+	public static void main(String[] args){
 		
 		Scanner input = new Scanner(System.in);
 		
-		BancoDeDados bd = new BancoDeDados();
+		BancoDeDados b1 = new BancoDeDados();
 		
 		System.out.println("Escolha uma das opções para criar:");
 		System.out.println("1- Criar vagão\n2- Criar locomotiva\n3- Criar Trem");
