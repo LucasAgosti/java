@@ -4,7 +4,7 @@ public class Estacao{
 	private String sigla;
 	private String linha;
 	private String descricao;
-	private Ferrovia linhaFerrovia;
+	private LinhaFerroviaria linhaFerrovia;
 	
 	public void setSigla(String sigla){
 		this.sigla = sigla;
