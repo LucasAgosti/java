@@ -52,12 +52,14 @@ public class Vagao{
 	//MÉTODOS DO VAGÃO
 	
 	public void carregar(double carga){
+	
 		if((this.capacidadeAtual - carga) < 0){
 			System.out.println("Carga não suportada!");
 		}else{
 			this.capacidadeAtual -= carga;
 		}
 	}
+	
 	public void descarregar(){
 		this.capacidadeAtual = this.capacidadeTotal;
 	}
@@ -65,7 +67,7 @@ public class Vagao{
 	public void descarregar(double carga){
 		this.capacidadeAtual += carga;
 		if((this.capacidadeAtual + carga) > this.capacidadeTotal){
-			System.out.println("Carga desejado ultrapassa a carga limite!\nO vagão foi descarregado!")
+			System.out.println("Carga desejado ultrapassa a carga limite!\nO vagão foi descarregado!");
 		}
 	}
 	
