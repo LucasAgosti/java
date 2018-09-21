@@ -20,14 +20,16 @@ public class LinhaFerroviaria{
 		this.extensao = extensao;
 	}
 	
-	public void getExtensao(){
+	public double getExtensao(){
 		return this.extensao;
 	}
 	public void setDescricao(String descricao){
 		this.descricao = descricao;
 	}
 	
-	public void getDescricao(){
+	public String getDescricao(){
 		return this.descricao;
 	}
+	
+	
 }
