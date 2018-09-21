@@ -1,4 +1,5 @@
 package EstacaoFerroviaria;
+
 public class Vagao{
 	
 	private String numeroDeSerie;
@@ -52,21 +53,20 @@ public class Vagao{
 	//MÉTODOS DO VAGÃO
 	
 	public void carregar(double carga){
-	
-		if((this.capacidadeAtual - carga) < 0){
+		if((this.capacidadeCargaAtual - carga) < 0){
 			System.out.println("Carga não suportada!");
 		}else{
-			this.capacidadeAtual -= carga;
+			this.capacidadeCargaAtual -= carga;
 		}
 	}
 	
 	public void descarregar(){
-		this.capacidadeAtual = this.capacidadeTotal;
+		this.capacidadeCargaAtual = this.capacidadeCargaTotal;
 	}
 	
 	public void descarregar(double carga){
-		this.capacidadeAtual += carga;
-		if((this.capacidadeAtual + carga) > this.capacidadeTotal){
+		this.capacidadeCargaAtual += carga;
+		if((this.capacidadeCargaAtual + carga) > this.capacidadeCargaTotal){
 			System.out.println("Carga desejado ultrapassa a carga limite!\nO vagão foi descarregado!");
 		}
 	}
@@ -84,7 +84,7 @@ public class Vagao{
 	
 	public String toString(){
 		String str = "";
-		str += "Esse vagão tem capacidade de carregar mais" + this.capacidadeAtual + " de " + this.capacidadeTotal + ".\n";
+		str += "Esse vagão tem capacidade de carregar mais" + this.capacidadeCargaAtual + " de " + this.capacidadeCargaTotal + ".\n";
 		str +=  "Ele carrega " + this.tipo + " e seu número de série é: " + this.numeroDeSerie + ".";  		
 		return str;
 	}
