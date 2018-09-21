@@ -11,7 +11,7 @@ public class Locomotiva{
 		this.numeroDeSerie = numeroDeSerie;
 	}
 	public String getNumeroDeSerie(){
-		return numeroDeSerie
+		return numeroDeSerie;
 	}
 	
 	public void setTracao(double tracao){
