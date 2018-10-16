@@ -10,8 +10,9 @@ public class Ball {
 	public double x,y;
 	public int wid, hei;
 	public double dx, dy;
-	public double speed = 1.5;
-	
+	public double speed = 1.3;
+	public int count_player;
+	public int count_enemy;
 	
 	public Ball(int x, int y) {
 		this.x = x;
@@ -40,12 +41,23 @@ public class Ball {
 		//PONTUAÇÕES
 		if(y >= Game.HEIGHT) {
 			//INIMIGO PONTUA
-			new Game();
+
+			System.out.println("Enemy scores!");
+			Game.enemy.count_enemy++;
+			System.out.println("Enemy: " + Game.enemy.count_enemy);
+			
+			new Game(Game.player.count_player, Game.enemy.count_enemy);
 			return;
 			
 		}else if(y < 0) {
 			//PONTO DO PLAYER
-			new Game();
+			//int count_player = 0;
+			System.out.println("Player scores!");
+			
+			Game.player.count_player++;
+			System.out.println("Player: " + Game.player.count_player);
+			
+			new Game(this.count_player, this.count_enemy);
 			return;
 		}
 		
@@ -63,7 +75,6 @@ public class Ball {
 			if(dy > 0) 
 				dy *= -1;
 			
-			
 		}else if(bounds.intersects(boundsEnemy)) {
 			int angle = new Random().nextInt(120 - 45) + 45;
 			dx = Math.cos(Math.toRadians(angle));
@@ -76,7 +87,7 @@ public class Ball {
 	
 	public void render(Graphics gph) {
 		gph.setColor(Color.GREEN);
-		gph.fillOval((int)x, (int)y, wid, hei);
+		gph.fillRect((int)x, (int)y, wid, hei);
 		score(gph);
 	}
 	
