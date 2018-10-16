@@ -8,13 +8,15 @@ public class Player {
 	//VARIAVEIS
 	public boolean right, left;
 	public int x, y, wid, hei;
+	public int count_player;
 	
 	//METODO CONSTRUTOR
-	public Player(int x, int y) {
+	public Player(int x, int y, int count_player) {
 		this.x = x;
 		this.y = y;
 		this.wid = 40;
 		this.hei = 5;
+		this.count_player = count_player;
 	}
 	
 	public void tick() {
