@@ -19,7 +19,6 @@ public class Game extends Canvas implements Runnable, KeyListener{
 	public final static int HEIGHT = 120;
 	public final static int SCALE = 3;
 
-
 	public BufferedImage layer = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 
 	public static Player player;
@@ -27,19 +26,21 @@ public class Game extends Canvas implements Runnable, KeyListener{
 	public static Ball ball;
 	
 	//METODO CONSTRUTOR GAME
-	public Game() {
+	public Game(int count_player, int count_enemy) {
 		
 		this.setPreferredSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
 		this.addKeyListener(this);
 		
-		player = new Player((WIDTH/2) - 20, HEIGHT - 5);
-		enemy = new Enemy((WIDTH/2) - 20, 0);
+		player = new Player((WIDTH/2) - 20, HEIGHT - 5, count_player);
+		enemy = new Enemy((WIDTH/2) - 20, 0, count_enemy);
 		ball = new Ball((WIDTH/2), HEIGHT /2 - 1);
 	}
 	
 	public static void main(String[] args) {
 		
-		Game pong = new Game();
+		int count_enemy = 0;
+		int count_player = 0;
+		Game pong = new Game(count_player, count_enemy);
 		JFrame frame = new JFrame("Pong");
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -50,7 +51,6 @@ public class Game extends Canvas implements Runnable, KeyListener{
 		
 		new Thread(pong).start();
 	}
-	
 	
 	public void tick() {
 		player.tick();
@@ -90,8 +90,7 @@ public class Game extends Canvas implements Runnable, KeyListener{
 				Thread.sleep(1000/60);
 			}catch (InterruptedException e) {
 				e.printStackTrace();
-			}
-			
+			}		
 		}
 	}
 
@@ -102,7 +101,6 @@ public class Game extends Canvas implements Runnable, KeyListener{
 			
 		}else if(e.getKeyCode() == KeyEvent.VK_LEFT) {
 			player.left = true;
-	
 		}
 	}
 
@@ -113,13 +111,11 @@ public class Game extends Canvas implements Runnable, KeyListener{
 			
 		}else if(e.getKeyCode() == KeyEvent.VK_LEFT) {
 			player.left = false;
-	
 		}
 	}
 
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
 	}
 }
