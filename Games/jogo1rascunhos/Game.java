@@ -13,9 +13,10 @@ import java.util.List;
 
 import javax.swing.JFrame;
 
-import com.poogametopview.entities.Entity;
-import com.poogametopview.entities.Player;
-import com.poogametopview.graphics.Spritesheet;
+import com.javagame.entities.Entity;
+import com.javagame.entities.Player;
+import com.javagame.graphics.Spritesheet;
+import com.javagame.map.World;
 
 public class Game extends Canvas implements Runnable, KeyListener{
 
@@ -32,6 +33,7 @@ public class Game extends Canvas implements Runnable, KeyListener{
 	public List<Entity> entities;
 	public static Spritesheet spritesheet;
 	private Player player;
+	public static World world;
 	
 	public Game() {
 		
@@ -43,7 +45,8 @@ public class Game extends Canvas implements Runnable, KeyListener{
 		image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 		entities = new ArrayList<Entity>();
 		spritesheet = new Spritesheet("/spritesheet.png");
-		
+		world = new World("/map.png");
+
 		player = new Player(0, 0, 16, 16, spritesheet.getSprite(32, 0, 16, 16));
 		entities.add(player);
 	}
@@ -100,9 +103,11 @@ public class Game extends Canvas implements Runnable, KeyListener{
 			return;
 		}
 		Graphics gr = image.getGraphics();
-		gr.setColor(Color.darkGray);
+		gr.setColor(new Color(0, 0, 0));
 		gr.fillRect(0, 0, WIDTH * SCALE, HEIGHT * SCALE);
-	
+		
+		world.render(gr);
+		
 		for(int i = 0; i < entities.size(); i++) {
 			
 			Entity e = entities.get(i);
