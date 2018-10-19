@@ -6,10 +6,10 @@ import java.awt.image.BufferedImage;
 public class Entity {
 	
 	//ATRIBUTOS
-	private int x;
-	private int y;
-	private int wid;
-	private int hei;
+	protected double x;
+	protected double y;
+	protected int wid;
+	protected int hei;
 	
 	private BufferedImage sprite;
 	
@@ -23,11 +23,18 @@ public class Entity {
 	}
 	
 	//MÉTODOS SET E GET
+	public void setX(int newX) {
+		this.x = newX;
+	}
+	public void setY(int newY) {
+		this.y = newY;
+	}
+	
 	public int getX() {
-		return this.x;
+		return (int)this.x;
 	}
 	public int getY() {
-		return this.y;
+		return (int)this.y;
 	}
 	public int getWidth() {
 		return this.wid;
