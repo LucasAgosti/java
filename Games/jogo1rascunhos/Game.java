@@ -4,6 +4,8 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -15,7 +17,7 @@ import com.poogametopview.entities.Entity;
 import com.poogametopview.entities.Player;
 import com.poogametopview.graphics.Spritesheet;
 
-public class Game extends Canvas implements Runnable{
+public class Game extends Canvas implements Runnable, KeyListener{
 
 	private static final long serialVersionUID = 1L;
 	private Thread thread;
@@ -28,10 +30,12 @@ public class Game extends Canvas implements Runnable{
 	private BufferedImage image;
 	
 	public List<Entity> entities;
-	public Spritesheet spritesheet;
+	public static Spritesheet spritesheet;
+	private Player player;
 	
 	public Game() {
 		
+		addKeyListener(this); //USO O THIS PORQUE O MÉTODO JÁ ESTA NA PRÓPRIA CLASSE
 		setPreferredSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
 		initFrame();
 		//INICIANDO OBJETOS
@@ -40,7 +44,7 @@ public class Game extends Canvas implements Runnable{
 		entities = new ArrayList<Entity>();
 		spritesheet = new Spritesheet("/spritesheet.png");
 		
-		Player player = new Player(0, 0, 16, 16, spritesheet.getSprite(32, 0, 16, 16));
+		player = new Player(0, 0, 16, 16, spritesheet.getSprite(32, 0, 16, 16));
 		entities.add(player);
 	}
 	
@@ -84,6 +88,7 @@ public class Game extends Canvas implements Runnable{
 			
 			Entity e = entities.get(i);
 			e.tick();
+			
 		}
 	}
 	
@@ -139,5 +144,46 @@ public class Game extends Canvas implements Runnable{
 			}
 		}
 		stop();
+	}
+
+	public void keyPressed(KeyEvent e) {
+		if(e.getKeyCode() == KeyEvent.VK_RIGHT || e.getKeyCode() == KeyEvent.VK_D) {
+			//MOVE PARA A DIREITA
+			player.right = true;
+		}else if(e.getKeyCode() == KeyEvent.VK_LEFT || e.getKeyCode() == KeyEvent.VK_A) {
+			//MOVE PARA A ESQUERDA
+			player.left = true;
+		}
+
+		if(e.getKeyCode() == KeyEvent.VK_UP || e.getKeyCode() == KeyEvent.VK_W) {
+			//MOVE PARA CIMA
+			player.up = true;
+		}else if(e.getKeyCode() == KeyEvent.VK_DOWN || e.getKeyCode() == KeyEvent.VK_S) {
+			//MOVE PARA BAIXO
+			player.down = true;
+		}
+		
+	}
+
+	public void keyReleased(KeyEvent e) {
+		if(e.getKeyCode() == KeyEvent.VK_RIGHT || e.getKeyCode() == KeyEvent.VK_D) {
+			//PARA O MOVIMENTO PARA DIREITA
+			player.right = false;
+		}else if(e.getKeyCode() == KeyEvent.VK_LEFT || e.getKeyCode() == KeyEvent.VK_A) {
+			//PARA O MOVIMENTO PARA ESQUERDA
+			player.left = false;
+		}
+
+		if(e.getKeyCode() == KeyEvent.VK_UP || e.getKeyCode() == KeyEvent.VK_W) {
+			//PARA O MOVIMENTO PARA CIMA
+			player.up = false;
+		}else if(e.getKeyCode() == KeyEvent.VK_DOWN || e.getKeyCode() == KeyEvent.VK_S) {
+			//PARA O MOVIMENTO PARA BAIXO
+			player.down = false;
+		}
+	}
+
+	public void keyTyped(KeyEvent e) {
+		
 	}
 }
