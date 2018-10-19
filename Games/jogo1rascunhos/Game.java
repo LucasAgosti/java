@@ -1,5 +1,7 @@
 package com.poogametopview.main;
 
+package com.javagame.main;
+
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -58,8 +60,7 @@ public class Game extends Canvas implements Runnable, KeyListener{
 		frame.pack();
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setVisible(true);
-		
+		frame.setVisible(true);	
 	}
 	
 	public synchronized void start() {
@@ -119,6 +120,7 @@ public class Game extends Canvas implements Runnable, KeyListener{
 		gr.drawImage(image, 0, 0, WIDTH * SCALE, HEIGHT * SCALE, null);
 		
 		bs.show();
+
 	}
 	
 	public void run() {
@@ -168,6 +170,9 @@ public class Game extends Canvas implements Runnable, KeyListener{
 			player.down = true;
 		}
 		
+		if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+			System.exit(0);
+		}
 	}
 
 	public void keyReleased(KeyEvent e) {
