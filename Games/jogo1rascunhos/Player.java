@@ -3,13 +3,13 @@ package com.poogametopview.entities;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
-import com.poogametopview.main.Game;
+import com.javagame.main.Game;
 
 public class Player extends Entity{
 
 	public boolean right, left, up, down;
 	public double speed = 0.8;
-	public int rightDir = 0, leftDir = 1; 
+	public int rightDir = 0, leftDir = 1;
 	public int direction = rightDir;
 	
 	private int frames = 0, maxFrames = 5, index = 0, maxIndex = 3;
@@ -72,6 +72,5 @@ public class Player extends Entity{
 		}else {
 			
 		}
-		
 	}
 }
