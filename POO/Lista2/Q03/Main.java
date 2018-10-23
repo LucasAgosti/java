@@ -52,8 +52,10 @@ public class UsandoAluno{
 					break;
 				
 				case '3':
+					out.println("*------------------------------------------------------*");
 					out.println("Crie um funcionário com os atributos de uma pessoa, cargo e salário");
 					out.println("Um funcionário possui: nome, cpf, nascimento, logradouro, numero, bairro, cidade, UF, cargo e salário");
+					out.println("*------------------------------------------------------*");
 				
 					String name3 = input.nextLine();
 					String c3 = input.nextLine();
