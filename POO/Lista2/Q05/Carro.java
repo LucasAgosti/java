@@ -1,5 +1,3 @@
-import java.util.Random;
-
 public class Carro extends Pessoa{
 	
 	//ATRIBUTOS
@@ -31,27 +29,29 @@ public class Carro extends Pessoa{
 	public int getAnoFabricacao(){
 		return fabricacao;
 	}
-	//SETAR O CHASSI COMO RANDOM
-	/*public void setChassi(String chassi){
+	
+	public void setChassi(String chassi){
 		this.chassi = chassi;
 	}
 	public String getChassi(){
 		return chassi;
-	}*/
+	}
 	
 	//CONSTRUTORES
 	
-	public Carro(String marca, String modelo, int fabricacao, String nome, String cpf, String dataNascimento){
-		super(nome, cpf, dataNascimento);
+	public Carro(String nome, String cpf, String marca, String modelo, int fabricacao, String chassi){
+		super(nome, cpf);
 		this.marca = marca;
 		this.modelo = modelo;
 		this.fabricacao = fabricacao;
+		this.chassi = chassi;
 	}
 	
 	//METODOS DA CLASSE
 	public void acelerar(double valor){
 		this.velocidade += valor;
 		if(tanque > 0){
+			System.out.println("Você está acelerando");
 			System.out.println("Velocidade: " + valor + " km/h");
 		}else{
 			System.out.println("O tanque está vazio!");
@@ -66,6 +66,7 @@ public class Carro extends Pessoa{
 				System.out.println("O carro está dando a ré");
 			}else{
 				System.out.println("Velocidade: " + valor + " km/h");
+				System.out.println("O carro freou: " + valor + " km/h");
 			}
 		}else{
 			System.out.println("O tanque está vazio!");
@@ -73,6 +74,7 @@ public class Carro extends Pessoa{
 	}
 	
 	public void abastecer(double valor){
+		System.out.println("O carro possuía " + this.tanque + "L");
 		this.tanque += valor;
 		System.out.println("O possui atualmente " + tanque + "L");
 	}
@@ -85,13 +87,12 @@ public class Carro extends Pessoa{
 		str += "\tMarca: " + this.marca + "\n";
 		str += "\tModelo: " + this.modelo + "\n";
 		str += "\tAno de fabricação: " + this.fabricacao + "\n";
+		str += "\tChassi: " + this.chassi + "\n";
 		str += "*--------------------------------------------*\n";
-		//str += "Chassi: " + this.chassi + "\n";
 		
 		str += "\t\tDONO\n";
 		str += "\t" + this.nome +  "\n";
-		str += "\tCPF: " +  this.cpf +  "\n";
-		str += "\tData de nascimento: " + this.dataNascimento + "\n";	
+		str += "\tCPF: " +  this.cpf +  "\n";	
 		str += "*--------------------------------------------*\n";		
 	
 		return str;
