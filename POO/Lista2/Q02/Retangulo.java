@@ -8,6 +8,9 @@ public class Retangulo{
 	public void setComprimento(double comprimento){
 		if(comprimento < 0){
 			System.out.println("Não existem retângulos com lados negativos");
+		}else if(comprimento > 20.0){
+			System.out.println("Aviso: o comprimento é maior que 20");
+			
 		}else{
 			this.comprimento = comprimento;
 		}
@@ -19,6 +22,10 @@ public class Retangulo{
 	public void setLargura(double largura){
 		if(largura < 0){
 			System.out.println("Não existem retângulos com lados negativos");
+		}else if(largura > 20.0){
+			System.out.println("Aviso: a largura é maior que 20");
+			this.largura = largura;
+			
 		}else{
 			this.largura = largura;
 		}
@@ -40,10 +47,12 @@ public class Retangulo{
 	}
 
 	public String toString(){
-	
+		
 		String str = "";
+		str += "*-------------------------*\n";
 		str += "Comprimento: " + this.comprimento + "\n";
 		str += "Largura: " + this.largura + "\n";
+		str += "*-------------------------*\n";
 		return str;
 	}	
 }
