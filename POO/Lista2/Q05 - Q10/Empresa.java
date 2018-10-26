@@ -20,7 +20,7 @@ public class Empresa{
 	public void setNomeFantasia(String nomeFantasia){
 		this.nomeFantasia = nomeFantasia;
 	}
-	public String getRazaoSocial(){
+	public String getNomeFantasia(){
 		return nomeFantasia;
 	}
 	
@@ -70,5 +70,4 @@ public class Empresa{
 		this.cidade = cidade;
 		this.UF = UF;
 	}
-	
 }
