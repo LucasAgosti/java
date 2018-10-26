@@ -20,11 +20,9 @@ public class VendedorDeConcessionaria extends Funcionario{
 	}
 	
 	//CONSTRUTORES 
-	public Funcionario(String nome, String cpf, String dataNascimento, String logradouro, double numero, String bairro, String cidade, String UF, String cargo, double salario){
+	public VendedorDeConcessionaria(String nome, String cpf, String dataNascimento, String cargo, double salario){
 		
-		super(nome, cpf, dataNascimento, logradouro, numero, bairro, cidade, UF);
-		this.cargo = cargo;
-		this.salario = salario;
+		super(nome, cpf, dataNascimento, cargo, salario);
 	}
 	
 	public void vender(double valor){
@@ -42,11 +40,6 @@ public class VendedorDeConcessionaria extends Funcionario{
 		str += "FUNCIONÁRIO: " + this.nome +  "\n";
 		str += "CPF: " +  this.cpf +  "\n";
 		str += "Data de nascimento: " + this.dataNascimento + "\n";
-		str += "Logradouro: " + this.logradouro + "\n";
-		str += "Número: " + this.numero + "\n";
-		str += "Bairro: " + this.bairro + "\n";
-		str += "Cidade: " + this.cidade + "\n";
-		str += "UF: " + this.UF + "\n";
 		str += "Cargo: " + this.cargo + "\n";
 		str += "Salario: R$ " + this.salario + "\n";
 		str += "*------------------------------------------------------*\n";
