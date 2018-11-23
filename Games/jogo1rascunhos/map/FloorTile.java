@@ -1,4 +1,4 @@
-package com.javagame.map;
+package com.poogametopview.map;
 
 import java.awt.image.BufferedImage;
 
