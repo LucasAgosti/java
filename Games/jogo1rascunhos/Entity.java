@@ -1,17 +1,32 @@
 package com.poogametopview.entities;
 
+import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
+
+import com.poogametopview.main.Game;
+import com.poogametopview.map.Camera;
 
 public class Entity {
 	
-	//ATRIBUTOS
+	public static BufferedImage LIFEPACK_EN = Game.spritesheet.getSprite(6 * 16, 0, 16, 16);
+	public static BufferedImage GUN_EN = Game.spritesheet.getSprite(7 * 16, 0, 16, 16);
+	public static BufferedImage WEAPONAMMO_EN = Game.spritesheet.getSprite(6 * 16, 16, 16, 16);
+	public static BufferedImage ENEMY_EN = Game.spritesheet.getSprite(7 * 16, 16, 16, 16);
+	public static BufferedImage WEAPON_RIGHT = Game.spritesheet.getSprite(128, 0, 16, 16);
+	public static BufferedImage WEAPON_LEFT = Game.spritesheet.getSprite(144, 0, 16, 16);
+	public static BufferedImage FEEDBACK_EN = Game.spritesheet.getSprite(9 * 16, 16, 16, 16);
+	
+	//ATRIBUTOS	
 	protected double x;
 	protected double y;
 	protected int wid;
 	protected int hei;
 	
 	private BufferedImage sprite;
+	private int maskX, maskY, maskWid, maskHei;
+	public boolean debug = false;
 	
 	//MÉTODO CONSTRUTOR
 	public Entity(int x, int y, int wid, int hei, BufferedImage sprite) {
@@ -20,6 +35,19 @@ public class Entity {
 		this.wid = wid;
 		this.hei = hei;	
 		this.sprite = sprite;
+		
+		this.maskX = 0;
+		this.maskY = 0;
+		this.maskWid = wid;
+		this.maskHei = hei;
+	}
+	
+	public void setMask(int maskX, int maskY, int maskWid, int maskHei) {
+		
+		this.maskX = maskX;
+		this.maskY = maskY;
+		this.maskWid = maskWid;
+		this.maskHei = maskHei;
 	}
 	
 	//MÉTODOS SET E GET
@@ -45,11 +73,21 @@ public class Entity {
 	
 	public void tick() {
 		
-		
-	}
+	}	
 	
 	public void render(Graphics gphs) {
 		
-		gphs.drawImage(sprite, this.getX(), this.getY(), null);
+		gphs.drawImage(sprite, this.getX() - Camera.x, this.getY() - Camera.y, null);
+
+		//gphs.setColor(Color.red);
+		//gphs.fillRect(this.getX() + maskX - Camera.x, this.getY() + maskY - Camera.y, maskWid, maskHei);
+	}
+	
+	public static boolean isColliding(Entity e1, Entity e2) {
+		
+		Rectangle e1Mask = new Rectangle(e1.getX() + e1.maskX, e1.getY() + e1.maskY, e1.maskWid, e1.maskHei);
+		Rectangle e2Mask = new Rectangle(e2.getX() + e2.maskX, e2.getY() + e2.maskY, e2.maskWid, e2.maskHei);
+		
+		return e1Mask.intersects(e2Mask);
 	}
 }
