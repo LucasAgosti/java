@@ -1,9 +1,9 @@
-package com.gametopview.map;
+package com.poogametopview.map;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
-import com.javagame.main.Game;
+import com.poogametopview.main.Game;
 
 public class Tile {
 
@@ -21,6 +21,6 @@ public class Tile {
 	
 	public void render(Graphics gph) {
 		
-		gph.drawImage(sprite, x, y, null);
+		gph.drawImage(sprite, x - Camera.x, y - Camera.y, null);
 	}
 }
